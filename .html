@@ -1,0 +1,196 @@
+NBA
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>NBA</title>
+
+<style>
+    body {
+        text-align: center;
+        font-family: Arial;
+        background: linear-gradient(to right, #1d428a, #c8102e);
+        color: white;
+        overflow-x: hidden;
+    }
+
+    .titulo-mov {
+        white-space: nowrap;
+        position: relative;
+        animation: moverIzq 8s linear infinite;
+    }
+
+    @keyframes moverIzq {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+
+    .seccion {
+        display: none;
+    }
+
+    .activa {
+        display: block;
+    }
+
+    .jugadores {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        cursor: pointer;
+        transition: transform 0.3s;
+        opacity: 0;
+        transform: translateY(50px);
+        animation: subir 1s ease forwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.5s; }
+    .card:nth-child(3) { animation-delay: 0.8s; }
+
+    @keyframes subir {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .card:hover {
+        transform: scale(1.1);
+    }
+
+    img {
+        width: 220px;
+        border: 5px solid white;
+        border-radius: 15px;
+    }
+
+    .info {
+        max-width: 600px;
+        margin: auto;
+    }
+
+    button {
+        padding: 10px 20px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: gray;
+    }
+</style>
+
+<script>
+    function mostrar(seccion) {
+        document.querySelectorAll('.seccion').forEach(div => {
+            div.classList.remove('activa');
+        });
+        document.getElementById(seccion).classList.add('activa');
+    }
+</script>
+
+</head>
+<body>
+
+<div id="inicio" class="seccion activa">
+    <h1 class="titulo-mov">🏀 Bienvenido a la NBA 🏀</h1>
+    <p>Haz clic en un jugador:</p>
+
+    <div class="jugadores">
+
+        <div class="card" onclick="mostrar('curry')">
+            <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png">
+            <h3>Stephen Curry</h3>
+        </div>
+
+        <div class="card" onclick="mostrar('jordan')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Michael_Jordan_in_2014.jpg">
+            <h3>Michael Jordan</h3>
+        </div>
+
+        <div class="card" onclick="mostrar('kobe')">
+            <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/977.png">
+            <h3>Kobe Bryant</h3>
+        </div>
+
+    </div>
+</div>
+
+<div id="curry" class="seccion">
+    <h1 class="titulo-mov">Stephen Curry</h1>
+    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/201939.png">
+
+    <div class="info">
+        <p>
+            Stephen Curry es considerado el mejor tirador en la historia del baloncesto.
+            Juega para los Golden State Warriors y ha cambiado la forma en que se juega la NBA,
+            popularizando el tiro de tres puntos.
+        </p>
+
+        <h3>Biografía</h3>
+        <p>
+            Nació el 14 de marzo de 1988 en Akron, Ohio. Es hijo del exjugador Dell Curry.
+            Fue seleccionado en el Draft de 2009 y desde entonces ha ganado múltiples campeonatos.
+            Ha sido MVP de la NBA en varias ocasiones y es conocido por su increíble precisión,
+            manejo de balón y liderazgo.
+        </p>
+    </div>
+
+    <button onclick="mostrar('inicio')">Regresar</button>
+</div>
+
+<div id="jordan" class="seccion">
+    <h1 class="titulo-mov">Michael Jordan</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Michael_Jordan_in_2014.jpg">
+
+    <div class="info">
+        <p>
+            Michael Jordan es considerado el mejor jugador de baloncesto de todos los tiempos.
+            Dominó la NBA durante los años 90 con los Chicago Bulls.
+        </p>
+
+        <h3>Biografía</h3>
+        <p>
+            Nació el 17 de febrero de 1963. Ganó 6 campeonatos de la NBA,
+            fue 5 veces MVP y 10 veces máximo anotador. Su impacto fue tan grande
+            que llevó el baloncesto a nivel mundial.
+        </p>
+    </div>
+
+    <button onclick="mostrar('inicio')">Regresar</button>
+</div>
+
+<div id="kobe" class="seccion">
+    <h1 class="titulo-mov">Kobe Bryant</h1>
+    <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/977.png">
+
+    <div class="info">
+        <p>
+            Kobe Bryant fue uno de los jugadores más talentosos y trabajadores de la NBA.
+            Jugó toda su carrera en Los Angeles Lakers.
+        </p>
+
+        <h3>Biografía</h3>
+        <p>
+            Nació el 23 de agosto de 1978. Ganó 5 campeonatos de la NBA
+            y fue MVP en 2008. Es recordado por su mentalidad "Mamba Mentality",
+            su ética de trabajo y su habilidad para anotar en momentos decisivos.
+        </p>
+    </div>
+
+    <button onclick="mostrar('inicio')">Regresar</button>
+</div>
+
+</body>
+</html>
+
